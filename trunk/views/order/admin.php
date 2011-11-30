@@ -8,7 +8,9 @@ $this->breadcrumbs=array(
 ?>
 
 <h2> <?php echo Shop::t('Orders'); ?> </h2>
+
 <?php 
+$model = new Order();
 
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'order-grid',
