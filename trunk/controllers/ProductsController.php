@@ -92,7 +92,7 @@ class ProductsController extends Controller
 	{
 		$model = $this->loadModel();
 
-		if($model && $model->status != 1)
+		if(!$model && $model->status != 1)
 			throw new CHttpException(404);
 
 		$this->render(Shop::module()->productView,array(
