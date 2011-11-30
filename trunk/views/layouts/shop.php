@@ -63,7 +63,7 @@
 		</div><!-- sidebar -->
 	</div><!-- span-5 -->
 
-	<div style="clear;"></div>
+	<div style="clear:both;"></div>
 
 	<div id="footer">
 		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
