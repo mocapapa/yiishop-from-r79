@@ -28,7 +28,7 @@ class ShopModule extends CWebModule
 	public $taxTable = 'shop_tax';
 	public $productSpecificationTable = 'shop_product_specification';
 	public $productVariationTable = 'shop_product_variation';
-	public $currencySymbol = '$';
+	public $currencySymbol = '円';
 	public $productView = 'view';
 
 	// Set this to a valid email address to send a message once a order
