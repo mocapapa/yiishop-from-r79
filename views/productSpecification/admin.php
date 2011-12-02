@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
-	'Product Specifications'=>array('admin'),
-	'Manage',
+	 Shop::t('Product Specifications')=>array('admin'),
+	 Shop::t('Manage'),
 );
 
 ?>

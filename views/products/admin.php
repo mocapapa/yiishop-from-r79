@@ -1,8 +1,8 @@
 <?php
 $this->breadcrumbs=array(
-			 'Products'=>array('admin'),
-			 'Manage',
-			 );
+	 Shop::t('Products')=>array('admin'),
+	 Shop::t('Manage'),
+);
 
 ?>
 
