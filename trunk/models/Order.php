@@ -77,8 +77,8 @@ class Order extends CActiveRecord
 
 	public function getTaxAmount() {
 		$amount = 0;
-		if($this->products)
-			foreach($this->products as $position)
+		if($this->positions)
+			foreach($this->positions as $position)
 				$amount += ($position->getPrice() * ($position->product->tax->percent / 100 + 1) ) - $position->getPrice();
 
 		return $amount;
