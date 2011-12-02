@@ -95,7 +95,7 @@ class OrderController extends Controller
 	public function actionUpdate($id) {
 		$order = $this->loadModel();
 		if( (Shop::module()->useWithYum && Yii::app()->user->isAdmin()) 
-			|| Yii::app()->user->id == 1) {
+			|| Yii::app()->user->id == 'admin') {
 
 		if(isset($_POST['Order'])) {
 			if(
