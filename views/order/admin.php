@@ -21,7 +21,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'customer.address.firstname',
 		'customer.address.lastname',
 		array('name' => 'ordering_date',
-			'value' => 'date("M j, Y", $data->ordering_date)',
+			'value' => 'date(Shop::module()->dateFormat, $data->ordering_date)',
 			'filter' => false
 			),
 		array('name' => 'status',
