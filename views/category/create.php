@@ -1,13 +1,13 @@
 <?php
 $this->breadcrumbs=array(
-		Yii::t('ShopModule.shop', 'Categories')=>array('index'),
-		Yii::t('ShopModule.shop', 'Create'),
+		Shop::t('Categories')=>array('index'),
+		Shop::t('Create'),
 		);
 
 ?>
 <div id="shopcontent">
 
-<h1> <?php echo Yii::t('ShopModule.shop', 'Create Category'); ?> </h1>
+<h1> <?php echo Shop::t('Create Category'); ?> </h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
 

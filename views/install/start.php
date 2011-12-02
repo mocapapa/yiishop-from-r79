@@ -1,4 +1,4 @@
-<h1> <?php echo Yii::t('ShopModule.shop', 'Yii Webshop Installation'); ?> </h1>
+<h1> <?php echo Shop::t('Yii Webshop Installation'); ?> </h1>
 
 <?php
 $module = Yii::app()->getModule('shop');

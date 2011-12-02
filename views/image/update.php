@@ -2,14 +2,14 @@
 $this->breadcrumbs=array(
 	'Images'=>array('index'),
 	$model->title=>array('view','id'=>$model->id),
-	Yii::t('ShopModule.shop', 'Update'),
+	Shop::t('Update'),
 );
 
 $this->menu=array(
-	array('label'=>Yii::t('ShopModule.shop', 'List') . 'Image', 'url'=>array('index')),
-	array('label'=>Yii::t('ShopModule.shop', 'Create') . 'Image', 'url'=>array('create')),
-	array('label'=>Yii::t('ShopModule.shop', 'View') . 'Image', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>Yii::t('ShopModule.shop', 'Manage') . 'Image', 'url'=>array('admin')),
+	array('label'=>Shop::t('List') . 'Image', 'url'=>array('index')),
+	array('label'=>Shop::t('Create') . 'Image', 'url'=>array('create')),
+	array('label'=>Shop::t('View') . 'Image', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>Shop::t('Manage') . 'Image', 'url'=>array('admin')),
 );
 ?>
 

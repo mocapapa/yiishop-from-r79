@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
-	Yii::t('ShopModule.shop', 'Images') =>array('index'),
-	Yii::t('ShopModule.shop', 'Manage'),
+	Shop::t('Images') =>array('index'),
+	Shop::t('Manage'),
 );
 
 ?>
@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 
 <h2> 
 <?php 
-echo Yii::t('ShopModule.shop', 'Images for'); 
+echo Shop::t('Images for'); 
 echo '&nbsp;' . $product->title; 
 ?>
 </h2>
@@ -25,8 +25,8 @@ if($images)
 
 echo '<br />';
 
-echo CHtml::link(Yii::t('ShopModule.shop', 'Cancel'), array('/shop/shop/admin')) . '<br />';
-echo CHtml::link(Yii::t('ShopModule.shop', 'Upload new Image'), array('create', 'product_id' => $product->product_id));
+echo CHtml::link(Shop::t('Cancel'), array('/shop/shop/admin')) . '<br />';
+echo CHtml::link(Shop::t('Upload new Image'), array('create', 'product_id' => $product->product_id));
 
 
 ?>

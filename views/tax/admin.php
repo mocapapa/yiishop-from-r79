@@ -3,11 +3,6 @@ $this->breadcrumbs=array(
 	Shop::t('Taxes')=>array('index'),
 	Shop::t('Manage'),
 );
-
-$this->menu=array(
-	array('label'=>Shop::t('Create Tax'), 'url'=>array('create')),
-);
-
 ?>
 
 <h2> <?php echo Shop::t('Manage Taxes'); ?></h2>
@@ -24,4 +19,6 @@ $this->menu=array(
 			'class'=>'CButtonColumn',
 		),
 	),
-)); ?>
+));
+
+echo CHtml::link(Shop::t('Create Tax'), array('tax/create'));

@@ -65,8 +65,8 @@ class Address extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'title' => Shop::t('Title'),
-			'firstname' => Yii::t('ShopModule.shop', 'Firstname'),
-			'lastname' => Yii::t('ShopModule.shop', 'Lastname'),
+			'firstname' => Shop::t('Firstname'),
+			'lastname' => Shop::t('Lastname'),
 			'street' => Shop::t('Street'),
 			'zipcode' =>Shop::t('Zipcode'),
 			'zip_city' =>Shop::t('Zipcode / City'),

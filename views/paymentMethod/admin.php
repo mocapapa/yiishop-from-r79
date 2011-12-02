@@ -22,4 +22,7 @@ $this->breadcrumbs=array(
 			'class'=>'CButtonColumn',
 		),
 	),
-)); ?>
+));
+
+echo CHtml::link(Shop::t('Create a new paymentmethod'), array('paymentMethod/create'));
+

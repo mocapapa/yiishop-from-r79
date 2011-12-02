@@ -42,7 +42,7 @@ $this->widget('application.modules.shop.components.Relation',
 
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('ShopModule.shop', 'Create') : Yii::t('ShopModule.shop', 'Save')); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? Shop::t('Create') : Shop::t('Save')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

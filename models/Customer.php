@@ -42,13 +42,13 @@ class Customer extends CActiveRecord
 		return array(
 			'password' => Shop::t('Password'),
 			'passwordRepeat' => Shop::t('repeat Password'),
-			'customer_id' => Yii::t('ShopModule.shop', 'Customer'),
-			'user_id' => Yii::t('ShopModule.shop', 'Userid'),
-			'phone' => Yii::t('ShopModule.shop', 'Phone'),
-			'address_id' => Yii::t('ShopModule.shop', 'Address'),
-			'billing_address_id' => Yii::t('ShopModule.shop', 'Billing Address'),
-			'delivery_address_id' => Yii::t('ShopModule.shop', 'Delivery Address'),
-			'email' => Yii::t('ShopModule.shop', 'Email'),
+			'customer_id' => Shop::t('Customer'),
+			'user_id' => Shop::t('Userid'),
+			'phone' => Shop::t('Phone'),
+			'address_id' => Shop::t('Address'),
+			'billing_address_id' => Shop::t('Billing Address'),
+			'delivery_address_id' => Shop::t('Delivery Address'),
+			'email' => Shop::t('Email'),
 		);
 	}
 
