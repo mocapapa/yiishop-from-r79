@@ -100,7 +100,7 @@
 		} */
 
 		public static function priceFormat ($price) {
-			$price = sprintf('%.2f', $price);
+			$price = number_format($price);
 
 			if(Yii::app()->language == 'de')
 				$price = str_replace('.', ',', $price);
