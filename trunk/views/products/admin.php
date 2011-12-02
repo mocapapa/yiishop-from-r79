@@ -1,3 +1,11 @@
+<?php
+$this->breadcrumbs=array(
+			 'Products'=>array('admin'),
+			 'Manage',
+			 );
+
+?>
+
 <h2> <?php echo Shop::t('Products'); ?> </h2>
 <?php 
 
@@ -21,7 +29,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 			array("id" => $data->product_id))',
 			'buttons' => array(
 				'images' => array(
-					'label' => Yii::t('ShopModule.shop', 'images'),
+					'label' => Shop::t('images'),
 					'url' => 'Yii::app()->createUrl("/shop/image/admin",
 					array("product_id" => $data->product_id))',
 				),

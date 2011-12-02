@@ -192,8 +192,8 @@ if(Shop::module()->rteadapter !== false)
 
 				<div class="row buttons">
 				<?php echo CHtml::submitButton($model->isNewRecord ?
-						Yii::t('ShopModule.shop', 'Create') 
-						: Yii::t('ShopModule.shop', 'Save')); ?>
+						Shop::t('Create') 
+						: Shop::t('Save')); ?>
 				</div>
 
 				<?php $this->endWidget(); ?>

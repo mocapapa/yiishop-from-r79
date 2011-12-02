@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
-	Yii::t('ShopModule.shop', 'Customers')=>array('index'),
-	Yii::t('ShopModule.shop', 'Manage'),
+	Shop::t('Customers')=>array('index'),
+	Shop::t('Manage'),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -19,9 +19,9 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-	<h1><?php echo Yii::t('ShopModule.shop', 'Admin Customers'); ?></h1>
+	<h1><?php echo Shop::t('Admin Customers'); ?></h1>
 
-<?php echo CHtml::link(Yii::t('ShopModule.shop', 'Advanced Search'),'#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link(Shop::t('Advanced Search'),'#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,

@@ -80,4 +80,7 @@ return array (
   'Payment methods' => '支払い方法',
   'Tax'=>'税',
   'Orders'=>'注文',
+  'All prices are including VAT'=>'価格は税込の価格です',
+  'All prices are including VAT: {vat}'=>'価格は税込{vat}の価格です',
+  'All prices excluding shipping costs'=>'価格に配送料は含まれません',
 );

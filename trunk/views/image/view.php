@@ -18,5 +18,5 @@ echo CHtml::image($path,
 <?php 
 
 if(Shop::module()->useWithYum && Yii::app()->user->isAdmin()) 
-	echo CHtml::link(Yii::t('ShopModule.shop', 'Delete Image'),
+	echo CHtml::link(Shop::t('Delete Image'),
 			array('delete', 'id' => $model->id)); ?>

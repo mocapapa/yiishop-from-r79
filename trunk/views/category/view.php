@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
-	Yii::t('ShopModule.shop', 'Shop')=>array('shop/index'),
-	Yii::t('ShopModule.shop', 'Categories')=>array('index'),
+	Shop::t('Shop')=>array('shop/index'),
+	Shop::t('Categories')=>array('index'),
 	$model->title,
 );
 

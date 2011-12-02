@@ -4,11 +4,6 @@ $this->breadcrumbs=array(
 	'Manage',
 );
 
-$this->menu=array(
-	array('label'=>Shop::t('Specifications'), 'url'=>array('admin')),
-	array('label'=>Shop::t('New Specification'), 'url'=>array('create')),
-);
-
 ?>
 
 <h2><?php echo Shop::t('Manage Product Specifications'); ?></h2>
@@ -27,4 +22,6 @@ $this->menu=array(
 			'class'=>'CButtonColumn',
 		),
 	),
-)); ?>
+));
+
+echo CHtml::link(Shop::t('New Specification'), array('productSpecification/create'));

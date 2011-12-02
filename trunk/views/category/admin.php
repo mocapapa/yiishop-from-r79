@@ -1,5 +1,14 @@
 <?php 
+$this->breadcrumbs=array(
+			 'Category'=>array('admin'),
+			 'Manage',
+			 );
 
+?>
+
+<h2> <?php echo Shop::t('Category'); ?> </h2>
+
+<?php
 $model = new Category();
 
 $this->widget('zii.widgets.grid.CGridView', array(
@@ -20,6 +29,6 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	),
 )); 
 
-echo CHtml::link(Yii::t('ShopModule.shop', 'Create a new Category'), array('category/create'));
+echo CHtml::link(Shop::t('Create a new Category'), array('category/create'));
 
 ?>

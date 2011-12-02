@@ -1,4 +1,4 @@
-<h1> <?php echo Yii::t('ShopModule.shop', 'Yii Webshop Installation'); ?> </h1>
+<h1> <?php echo Shop::t('Yii Webshop Installation'); ?> </h1>
 
 <div class="span-12">
 <p> You are about to install the Yii Webshop Module in your Web 
@@ -66,6 +66,6 @@ Documentation on how to do this. </p>
 
 
 <?php echo CHtml::beginForm('install'); ?>
-<?php echo CHtml::submitButton(Yii::t('ShopModule.shop', 'Install Webshop')); ?>
+<?php echo CHtml::submitButton(Shop::t('Install Webshop')); ?>
 <?php echo CHtml::endForm(); ?>
 

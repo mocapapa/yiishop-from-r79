@@ -307,14 +307,14 @@ class InstallController extends Controller
 						// Victory
 						$this->render('success');
 				} else {
-					throw new CException(Yii::t('ShopModule.shop', 'Database Connection is not working'));	
+					throw new CException(Shop::t('Database Connection is not working'));	
 				}
 			}
 			else {
 				$this->render('start');
 			}
 		} else {
-			throw new CException(Yii::t('ShopModule.shop', 'Webshop is not in Debug Mode'));	
+			throw new CException(Shop::t('Webshop is not in Debug Mode'));	
 		}
 		}
 
