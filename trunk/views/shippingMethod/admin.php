@@ -26,4 +26,3 @@ $this->breadcrumbs=array(
 
 echo Chtml::link(Shop::t('Create new shipping method'), array(
 			'//shop/shippingMethod/create')); 
-?>

@@ -38,10 +38,13 @@ class ShippingMethodController extends Controller
 		$this->render('choose', array('customer' => Shop::getCustomer()));
 	}
 
-	public function actionView($id)
+	public function actionView()
 	{
+		$id = $_GET['id'];
+		$model=$this->loadModel($id['id'], $id['weight_range']);
+
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$model,
 		));
 	}
 
