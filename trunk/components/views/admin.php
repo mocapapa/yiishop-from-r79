@@ -8,11 +8,14 @@
 <li> <?php echo CHtml::link(Shop::t('Tax'), array('/shop/tax/admin')); ?> </li>
 <li> <?php echo CHtml::link(Shop::t('Orders'), array('/shop/order/admin')); ?> </li>
 
-<?php if(isset(Yii::app()->controller->menu)) {
+<?php
+/*
+	if(isset(Yii::app()->controller->menu)) {
 	foreach(Yii::app()->controller->menu as $value) {
 		printf('<li>%s</li>', CHtml::link($value['label'], $value['url']));
 	}
 }
+*/
 ?>
 </ul>
 
