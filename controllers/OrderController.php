@@ -58,7 +58,7 @@ class OrderController extends Controller
 		if($model) {
 			if($model->customer->user_id == Yii::app()->user->id
 					|| (Shop::module()->useWithYum && Yii::app()->user->isAdmin()) 
-					|| Yii::app()->user->id == 1)
+					|| Yii::app()->user->id == 'admin')
 			{
 
 				if(!$model->paymentMethod instanceof PaymentMethod)
