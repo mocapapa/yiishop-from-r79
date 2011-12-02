@@ -15,14 +15,14 @@ $links = array(
 
 
 echo '<div id="waypointarea" class="waypointarea">';
-	printf('<span class="waypoint %s">%s</span>',
+	printf('<span class="waypoint %s">%s</span>/',
 			$point == 0 ? 'active' : '',
 			CHtml::link(Shop::t('Shopping Cart'), array(
 						'//shop/shoppingCart/view')));
 
 foreach ($points as $p => $pointText) 
 {
-	printf('<span class="waypoint%s">%s</span>',
+	printf('<span class="waypoint%s">%s</span>/',
 			($point == ++$p) ? ' active' : '',
 			$point < ++$p ? $pointText : CHtml::link($pointText, @$links[$p-2])
 			);
