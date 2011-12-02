@@ -20,7 +20,7 @@ Shop::renderFlash();
 				'comment',
 				array(
 					'label' => Shop::t('Ordering Date'),
-					'value' => date('d. m. Y G:i',$model->ordering_date)
+					'value' => date(Shop::module()->dateFormat.' G:i',$model->ordering_date)
 					),
 				array(
 					'label' => Shop::t('Status'),

@@ -58,7 +58,7 @@ class ShopModule extends CWebModule
 	public $invoiceView = '/order/invoice';
 	public $footerView = '/order/footer';
 
-	public $dateFormat = 'd/m/Y';
+	public $dateFormat = 'Y/m/d';
 
 	// Set this to the id of the weight specification to enable weight
 	// calculation in the delivery slip and invoice. 1 is for the demo
