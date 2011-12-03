@@ -32,7 +32,7 @@ CREATE TABLE `shop_address` (
   `city` varchar(255) NOT NULL,
   `country` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,6 +58,8 @@ INSERT INTO `shop_address` VALUES (15,'mr','sakurai','atsushi','test','199','tes
 INSERT INTO `shop_address` VALUES (16,'mr','sakurai','atsushi','test','199','test','Japan');
 INSERT INTO `shop_address` VALUES (17,'mr','sakurai','atsushi','test','199','test','Japan');
 INSERT INTO `shop_address` VALUES (18,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (19,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (20,'mr','sakurai','atsushi','test','199','test','Japan');
 /*!40000 ALTER TABLE `shop_address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,7 +136,7 @@ CREATE TABLE `shop_image` (
   PRIMARY KEY (`id`),
   KEY `fk_Image_Products` (`product_id`),
   CONSTRAINT `fk_Image_Products` FOREIGN KEY (`product_id`) REFERENCES `shop_products` (`product_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,6 +149,7 @@ INSERT INTO `shop_image` VALUES (3,'オレンジスイート','essential_oil.jpg
 INSERT INTO `shop_image` VALUES (4,'ベルガモット','essential_oil.jpg',3);
 INSERT INTO `shop_image` VALUES (5,'アプリコットオイル','p_12644.jpg',4);
 INSERT INTO `shop_image` VALUES (6,'カモマイルジャーマン','p_10202.jpg',5);
+INSERT INTO `shop_image` VALUES (8,'イランイラン','essential_oil.jpg',6);
 /*!40000 ALTER TABLE `shop_image` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,7 +175,7 @@ CREATE TABLE `shop_order` (
   PRIMARY KEY (`order_id`),
   KEY `fk_order_customer` (`customer_id`),
   CONSTRAINT `fk_order_customer1` FOREIGN KEY (`customer_id`) REFERENCES `shop_customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,6 +190,7 @@ INSERT INTO `shop_order` VALUES (3,1,11,12,1322864578,'new',NULL,NULL,1,1,'');
 INSERT INTO `shop_order` VALUES (4,1,13,14,1322873880,'new',NULL,NULL,1,1,'');
 INSERT INTO `shop_order` VALUES (5,1,15,16,1322874106,'new',NULL,NULL,1,1,'');
 INSERT INTO `shop_order` VALUES (6,1,17,18,1322893420,'new',NULL,NULL,1,1,'');
+INSERT INTO `shop_order` VALUES (7,1,19,20,1322905919,'new',NULL,NULL,1,1,'');
 /*!40000 ALTER TABLE `shop_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,7 +208,7 @@ CREATE TABLE `shop_order_position` (
   `amount` int(11) NOT NULL,
   `specifications` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -225,6 +229,9 @@ INSERT INTO `shop_order_position` VALUES (9,6,5,1,'null');
 INSERT INTO `shop_order_position` VALUES (10,6,2,1,'null');
 INSERT INTO `shop_order_position` VALUES (11,6,3,1,'null');
 INSERT INTO `shop_order_position` VALUES (12,6,4,1,'null');
+INSERT INTO `shop_order_position` VALUES (13,7,2,2,'null');
+INSERT INTO `shop_order_position` VALUES (14,7,3,3,'null');
+INSERT INTO `shop_order_position` VALUES (15,7,6,4,'null');
 /*!40000 ALTER TABLE `shop_order_position` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -337,7 +344,7 @@ CREATE TABLE `shop_products` (
   PRIMARY KEY (`product_id`),
   KEY `fk_products_category` (`category_id`),
   CONSTRAINT `fk_products_category` FOREIGN KEY (`category_id`) REFERENCES `shop_category` (`category_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -346,10 +353,11 @@ CREATE TABLE `shop_products` (
 
 LOCK TABLES `shop_products` WRITE;
 /*!40000 ALTER TABLE `shop_products` DISABLE KEYS */;
-INSERT INTO `shop_products` VALUES (2,1,1,1,'オレンジスイート','爽やかで甘くフルーティな香り。気分を明るく、リフレッシュするのに最適です。\r\n異名称：スイートオレンジ\r\n\r\n\r\n●精油名：オレンジ・スィート（果皮）\r\n●学名：Citrus sinensis (Ze) (10ml)\r\n●科名：ミカン科\r\n●蒸留部位：果皮\r\n●主な産地：イタリア、ブラジル、モロッコ\r\n●蒸散速度：トップノート（中）\r\n●相性の良い精油：柑橘系、クラリーセージ、フランキンセンス、ネロリ、ミルラ、ラベンダー類、スパイス系\r\n●禁忌または注意事項：用法用量を守って使用すれば禁忌なし。\r\n','<p>爽やかで甘くフルーティな香り。気分を明るく、リフレッシュするのに最適です。<br />異名称：スイートオレンジ</p><p>●精油名：オレンジ・スィート（果皮）<br />●学名：Citrus sinensis (Ze) (10ml)<br />●科名：ミカン科<br />●蒸留部位：果皮<br />●主な産地：イタリア、ブラジル、モロッコ<br />●蒸散速度：トップノート（中）<br />●相性の良い精油：柑橘系、クラリーセージ、フランキンセンス、ネロリ、ミルラ、ラベンダー類、スパイス系<br />●禁忌または注意事項：用法用量を守って使用すれば禁忌なし。</p><br />','','2415',NULL,'{\"Weight\":\"\"}');
-INSERT INTO `shop_products` VALUES (3,1,1,1,'ベルガモット','透明感のある甘い柑橘の香り。\r\nリラックスだけでなく、リフレッシュにもおすすめです。異名称：ベルガモットオレンジ、ベルガモットオレンジピール\r\n\r\n●精油名：ベルガモット（果皮）\r\n●学名：Citrus aurantium ssp. bergamia (Ze) (10ml)\r\n●科名：ミカン科\r\n●蒸留部位：果皮\r\n●主な産地：イタリア、コートジボワール\r\n●蒸散速度：トップノート（高）\r\n●相性の良い精油：柑橘系、ネロリ、レモングラス、エレミ、プチグレン、ラベンダー類、クラリーセージ、ゼラニウム類、バジル\r\n●禁忌または注意事項：フロクマリン類を含んでいるので光感作（光毒性）作用がある。塗布した肌を４～５時間は直射日光（紫外線）に当てないよう注意が必要。','<p>透明感のある甘い柑橘の香り。<br />リラックスだけでなく、リフレッシュにもおすすめです。異名称：ベルガモットオレンジ、ベルガモットオレンジピール</p><p>●精油名：ベルガモット（果皮）<br />●学名：Citrus aurantium ssp. bergamia (Ze) (10ml)<br />●科名：ミカン科<br />●蒸留部位：果皮<br />●主な産地：イタリア、コートジボワール<br />●蒸散速度：トップノート（高）<br />●相性の良い精油：柑橘系、ネロリ、レモングラス、エレミ、プチグレン、ラベンダー類、クラリーセージ、ゼラニウム類、バジル<br />●禁忌または注意事項：フロクマリン類を含んでいるので光感作（光毒性）作用がある。塗布した肌を４～５時間は直射日光（紫外線）に当てないよう注意が必要。</p><br />','','3360',NULL,'{\"Weight\":\"\",\"Color\":\"\",\"Some random attribute\":\"\",\"Material\":\"\",\"Specific number\":\"\"}');
-INSERT INTO `shop_products` VALUES (4,4,1,1,'アプリコットオイル','アンズの種子からとれる植物油。\r\nほのかに甘い香りで、皮膚への浸透性が期待できます。\r\n\r\n■ 商品名 	アプリコット油\r\n■ 内容量 	50ml\r\n■ 使用成分 	アプリコット油\r\n■ 説明 	種子を圧搾\r\nオレイン酸やリノール酸を多く含み、適度な粘性と甘い香りをもちます。\r\n■ 使い方 	適量を手にとり、お肌に塗布してください。\r\n■ 保存方法 	高温多湿の場所を避けて保存してください。\r\n■ メーカー名 	プラナロム社\r\n■ 輸入業者 	株式会社 健草医学舎\r\n■ 区分 	ベルギー製／化粧品\r\n','<p>アンズの種子からとれる植物油。<br />ほのかに甘い香りで、皮膚への浸透性が期待できます。</p><p>■ 商品名   アプリコット油<br />■ 内容量   50ml<br />■ 使用成分  アプリコット油<br />■ 説明    種子を圧搾<br />オレイン酸やリノール酸を多く含み、適度な粘性と甘い香りをもちます。<br />■ 使い方   適量を手にとり、お肌に塗布してください。<br />■ 保存方法  高温多湿の場所を避けて保存してください。<br />■ メーカー名     プラナロム社<br />■ 輸入業者  株式会社 健草医学舎<br />■ 区分    ベルギー製／化粧品</p><br />','','2415',NULL,'{\"Weight\":\"\"}');
-INSERT INTO `shop_products` VALUES (5,2,1,1,'カモマイルジャーマンウォーター','■ 全成分 	カモマイルジャーマン水\r\n■ 内容量 	200ml\r\n','<p>■ 全成分   カモマイルジャーマン水<br />■ 内容量   200ml</p><br />','','2310',NULL,'{\"Weight\":\"\"}');
+INSERT INTO `shop_products` VALUES (2,1,1,1,'オレンジスイート','爽やかで甘くフルーティな香り。気分を明るく、リフレッシュするのに最適です。\r\n異名称：スイートオレンジ\r\n\r\n\r\n●精油名：オレンジ・スィート（果皮）\r\n●学名：Citrus sinensis (Ze) (10ml)\r\n●科名：ミカン科\r\n●蒸留部位：果皮\r\n●主な産地：イタリア、ブラジル、モロッコ\r\n●蒸散速度：トップノート（中）\r\n●相性の良い精油：柑橘系、クラリーセージ、フランキンセンス、ネロリ、ミルラ、ラベンダー類、スパイス系\r\n●禁忌または注意事項：用法用量を守って使用すれば禁忌なし。\r\n','<p>爽やかで甘くフルーティな香り。気分を明るく、リフレッシュするのに最適です。<br />異名称：スイートオレンジ</p><p>●精油名：オレンジ・スィート（果皮）<br />●学名：Citrus sinensis (Ze) (10ml)<br />●科名：ミカン科<br />●蒸留部位：果皮<br />●主な産地：イタリア、ブラジル、モロッコ<br />●蒸散速度：トップノート（中）<br />●相性の良い精油：柑橘系、クラリーセージ、フランキンセンス、ネロリ、ミルラ、ラベンダー類、スパイス系<br />●禁忌または注意事項：用法用量を守って使用すれば禁忌なし。</p><br />','','2300',NULL,'{\"Weight\":\"\"}');
+INSERT INTO `shop_products` VALUES (3,1,1,1,'ベルガモット','透明感のある甘い柑橘の香り。\r\nリラックスだけでなく、リフレッシュにもおすすめです。異名称：ベルガモットオレンジ、ベルガモットオレンジピール\r\n\r\n●精油名：ベルガモット（果皮）\r\n●学名：Citrus aurantium ssp. bergamia (Ze) (10ml)\r\n●科名：ミカン科\r\n●蒸留部位：果皮\r\n●主な産地：イタリア、コートジボワール\r\n●蒸散速度：トップノート（高）\r\n●相性の良い精油：柑橘系、ネロリ、レモングラス、エレミ、プチグレン、ラベンダー類、クラリーセージ、ゼラニウム類、バジル\r\n●禁忌または注意事項：フロクマリン類を含んでいるので光感作（光毒性）作用がある。塗布した肌を４～５時間は直射日光（紫外線）に当てないよう注意が必要。','<p>透明感のある甘い柑橘の香り。<br />リラックスだけでなく、リフレッシュにもおすすめです。異名称：ベルガモットオレンジ、ベルガモットオレンジピール</p><p>●精油名：ベルガモット（果皮）<br />●学名：Citrus aurantium ssp. bergamia (Ze) (10ml)<br />●科名：ミカン科<br />●蒸留部位：果皮<br />●主な産地：イタリア、コートジボワール<br />●蒸散速度：トップノート（高）<br />●相性の良い精油：柑橘系、ネロリ、レモングラス、エレミ、プチグレン、ラベンダー類、クラリーセージ、ゼラニウム類、バジル<br />●禁忌または注意事項：フロクマリン類を含んでいるので光感作（光毒性）作用がある。塗布した肌を４～５時間は直射日光（紫外線）に当てないよう注意が必要。</p><br />','','3200',NULL,'{\"Weight\":\"\",\"Color\":\"\",\"Some random attribute\":\"\",\"Material\":\"\",\"Specific number\":\"\"}');
+INSERT INTO `shop_products` VALUES (4,4,1,1,'アプリコットオイル','アンズの種子からとれる植物油。\r\nほのかに甘い香りで、皮膚への浸透性が期待できます。\r\n\r\n■ 商品名 	アプリコット油\r\n■ 内容量 	50ml\r\n■ 使用成分 	アプリコット油\r\n■ 説明 	種子を圧搾\r\nオレイン酸やリノール酸を多く含み、適度な粘性と甘い香りをもちます。\r\n■ 使い方 	適量を手にとり、お肌に塗布してください。\r\n■ 保存方法 	高温多湿の場所を避けて保存してください。\r\n■ メーカー名 	プラナロム社\r\n■ 輸入業者 	株式会社 健草医学舎\r\n■ 区分 	ベルギー製／化粧品\r\n','<p>アンズの種子からとれる植物油。<br />ほのかに甘い香りで、皮膚への浸透性が期待できます。</p><p>■ 商品名   アプリコット油<br />■ 内容量   50ml<br />■ 使用成分  アプリコット油<br />■ 説明    種子を圧搾<br />オレイン酸やリノール酸を多く含み、適度な粘性と甘い香りをもちます。<br />■ 使い方   適量を手にとり、お肌に塗布してください。<br />■ 保存方法  高温多湿の場所を避けて保存してください。<br />■ メーカー名     プラナロム社<br />■ 輸入業者  株式会社 健草医学舎<br />■ 区分    ベルギー製／化粧品</p><br />','','2300',NULL,'{\"Weight\":\"\"}');
+INSERT INTO `shop_products` VALUES (5,2,1,1,'カモマイルジャーマンウォーター','ハーブウォーターには微量の精油成分が含まれ、精油ともハーブティーとも違った特質により、穏やかな香りと作用が楽しめます。\r\n国産ハーブウォーターは自然環境豊かな土地で完全無農薬有機栽培により育てられたハーブを南アルプスの地下水を使用し蒸留しました。\r\n徹底した品質管理と衛生管理のもとに製造された最高水準の製品です。\r\n\r\n保存料・防腐剤を一切使用しておりませんので、１０℃～２０℃で保存し、開封後は3ヶ月以内に使用して下さい。\r\n\r\n●このハーブ水は、日本国内で無農薬・有機栽培で産出されたハーブより蒸留した無添加・自然化粧水です。\r\n●保存料・防腐剤等を一切使用しておりませんので、10～20℃で保存し、開封後は３ヶ月以内にご使用ください。\r\n\r\n\r\n■ 商品名 	ケンソー・ハーブウォーター・カモマイルジャーマン\r\n■ 全成分 	カモマイルジャーマン水\r\n■ 内容量 	200ml\r\n■ 保存方法 	開封後は冷蔵庫にて保管してください。\r\n■ 使い方 	適量を手に取りご使用ください。\r\n■ メーカー名 	株式会社健草医学舎\r\n■ 区分 	日本製／化粧品\r\n\r\n\r\n●食品ではありませんので飲まないでください。\r\n●お子様の手の届かない場所に保管してください。\r\n●容器ボトルを落としたり、強い衝撃を与えると割れる恐れがありますので、\r\n取り扱いにはご注意ください。 ','<p>ハーブウォーターには微量の精油成分が含まれ、精油ともハーブティーとも違った特質により、穏やかな香りと作用が楽しめます。<br />国産ハーブウォーターは自然環境豊かな土地で完全無農薬有機栽培により育てられたハーブを南アルプスの地下水を使用し蒸留しました。<br />徹底した品質管理と衛生管理のもとに製造された最高水準の製品です。</p><p>保存料・防腐剤を一切使用しておりませんので、１０℃～２０℃で保存し、開封後は3ヶ月以内に使用して下さい。</p><p>●このハーブ水は、日本国内で無農薬・有機栽培で産出されたハーブより蒸留した無添加・自然化粧水です。<br />●保存料・防腐剤等を一切使用しておりませんので、10～20℃で保存し、開封後は３ヶ月以内にご使用ください。</p><p>■ 商品名   ケンソー・ハーブウォーター・カモマイルジャーマン<br />■ 全成分   カモマイルジャーマン水<br />■ 内容量   200ml<br />■ 保存方法  開封後は冷蔵庫にて保管してください。<br />■ 使い方   適量を手に取りご使用ください。<br />■ メーカー名     株式会社健草医学舎<br />■ 区分    日本製／化粧品</p><p>●食品ではありませんので飲まないでください。<br />●お子様の手の届かない場所に保管してください。<br />●容器ボトルを落としたり、強い衝撃を与えると割れる恐れがありますので、<br />取り扱いにはご注意ください。</p><br />','','2200',NULL,'{\"Weight\":\"\"}');
+INSERT INTO `shop_products` VALUES (6,1,1,1,'イランイラン','甘美で人を陶酔させる香り。心をなごませるセクシャルな香りは寝室の香りとしても最適。\r\n\r\n●精油名：イランイラン\r\n●学名：Cananga Odorata (10ml)\r\n●科名：バンレイシ科科\r\n●蒸留部位：花\r\n●主な産地：マダガスカル\r\n●蒸散速度：ミドルノート（中）\r\n●相性の良い精油：ジャスミン、ローズ、ローズウッド、オポポナックス、シトロネラ、ネロリ、カモマイル、ゼラニウム類、柑橘系\r\n●禁忌または注意事項：用法用量を守って使用すれば禁忌なし。 ','<p>甘美で人を陶酔させる香り。心をなごませるセクシャルな香りは寝室の香りとしても最適。</p><p>●精油名：イランイラン<br />●学名：Cananga Odorata (10ml)<br />●科名：バンレイシ科科<br />●蒸留部位：花<br />●主な産地：マダガスカル<br />●蒸散速度：ミドルノート（中）<br />●相性の良い精油：ジャスミン、ローズ、ローズウッド、オポポナックス、シトロネラ、ネロリ、カモマイル、ゼラニウム類、柑橘系<br />●禁忌または注意事項：用法用量を守って使用すれば禁忌なし。</p><br />','','4300',NULL,'{\"Weight\":\"\"}');
 /*!40000 ALTER TABLE `shop_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -416,4 +424,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-12-03 17:53:18
+-- Dump completed on 2011-12-03 23:45:56
