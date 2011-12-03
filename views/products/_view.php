@@ -15,7 +15,7 @@
 	</div>
     
      <div class="product-overview-description">
-        <p> <?php echo CHtml::encode($data->description); ?> </p>
+        <p> <?php echo $data->descriptionDisplay; ?> </p>
         <p><strong> <?php echo Shop::priceFormat($data->price); ?></strong> <br />
         <p><?php echo Shop::pricingInfo(); ?></p>
       

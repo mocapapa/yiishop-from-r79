@@ -6,7 +6,10 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
 ?>
 
 <div id="slip">
-<table width="100%" border="0">
+
+<?php $this->renderPartial(Shop::module()->headerView); ?>
+
+  <table width="100%" border="0">
   <tr> 
     <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
         <tr> 

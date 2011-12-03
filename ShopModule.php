@@ -46,6 +46,7 @@ class ShopModule extends CWebModule
 	public $tcPdfPath = 'ext.tcpdf.tcpdf';
 	public $slipViewPdf = '/order/pdf/slip';
 	public $invoiceViewPdf = '/order/pdf/invoice';
+	public $headerViewPdf = '/order/pdf/header';
 	public $footerViewPdf = '/order/pdf/footer';
 
 	public $logoPath = 'logo.jpg';
@@ -56,6 +57,7 @@ class ShopModule extends CWebModule
 
 	public $slipView = '/order/slip';
 	public $invoiceView = '/order/invoice';
+	public $headerView = '/order/header';
 	public $footerView = '/order/footer';
 
 	public $dateFormat = 'Y/m/d';
