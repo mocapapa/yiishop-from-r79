@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.14, for Linux (i686)
+-- MySQL dump 10.13  Distrib 5.5.16, for Linux (i686)
 --
 -- Host: localhost    Database: yiishop
 -- ------------------------------------------------------
--- Server version	5.5.14
+-- Server version	5.5.16
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +32,7 @@ CREATE TABLE `shop_address` (
   `city` varchar(255) NOT NULL,
   `country` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,23 @@ CREATE TABLE `shop_address` (
 
 LOCK TABLES `shop_address` WRITE;
 /*!40000 ALTER TABLE `shop_address` DISABLE KEYS */;
+INSERT INTO `shop_address` VALUES (1,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (3,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (4,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (5,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (6,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (7,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (8,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (9,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (10,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (11,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (12,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (13,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (14,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (15,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (16,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (17,'mr','sakurai','atsushi','test','199','test','Japan');
+INSERT INTO `shop_address` VALUES (18,'mr','sakurai','atsushi','test','199','test','Japan');
 /*!40000 ALTER TABLE `shop_address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,11 +84,9 @@ CREATE TABLE `shop_category` (
 
 LOCK TABLES `shop_category` WRITE;
 /*!40000 ALTER TABLE `shop_category` DISABLE KEYS */;
-INSERT INTO `shop_category` VALUES (1,0,'Primary Articles',NULL,NULL);
-INSERT INTO `shop_category` VALUES (2,0,'Secondary Articles',NULL,NULL);
-INSERT INTO `shop_category` VALUES (3,1,'Red Primary Articles',NULL,NULL);
-INSERT INTO `shop_category` VALUES (4,1,'Green Primary Articles',NULL,NULL);
-INSERT INTO `shop_category` VALUES (5,2,'Red Secondary Articles',NULL,NULL);
+INSERT INTO `shop_category` VALUES (1,0,'エッセンシャルオイル','','');
+INSERT INTO `shop_category` VALUES (2,0,'ハーブウォーター','','');
+INSERT INTO `shop_category` VALUES (4,0,'キャリアオイル','','');
 /*!40000 ALTER TABLE `shop_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91,7 +106,7 @@ CREATE TABLE `shop_customer` (
   `email` varchar(45) NOT NULL,
   `phone` varchar(255) NOT NULL,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,6 +115,7 @@ CREATE TABLE `shop_customer` (
 
 LOCK TABLES `shop_customer` WRITE;
 /*!40000 ALTER TABLE `shop_customer` DISABLE KEYS */;
+INSERT INTO `shop_customer` VALUES (1,0,6,0,0,'ccc@ddd.eee','012-345-6789');
 /*!40000 ALTER TABLE `shop_customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,7 +134,7 @@ CREATE TABLE `shop_image` (
   PRIMARY KEY (`id`),
   KEY `fk_Image_Products` (`product_id`),
   CONSTRAINT `fk_Image_Products` FOREIGN KEY (`product_id`) REFERENCES `shop_products` (`product_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,6 +143,10 @@ CREATE TABLE `shop_image` (
 
 LOCK TABLES `shop_image` WRITE;
 /*!40000 ALTER TABLE `shop_image` DISABLE KEYS */;
+INSERT INTO `shop_image` VALUES (3,'オレンジスイート','essential_oil.jpg',2);
+INSERT INTO `shop_image` VALUES (4,'ベルガモット','essential_oil.jpg',3);
+INSERT INTO `shop_image` VALUES (5,'アプリコットオイル','p_12644.jpg',4);
+INSERT INTO `shop_image` VALUES (6,'カモマイルジャーマン','p_10202.jpg',5);
 /*!40000 ALTER TABLE `shop_image` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -152,7 +172,7 @@ CREATE TABLE `shop_order` (
   PRIMARY KEY (`order_id`),
   KEY `fk_order_customer` (`customer_id`),
   CONSTRAINT `fk_order_customer1` FOREIGN KEY (`customer_id`) REFERENCES `shop_customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -161,6 +181,12 @@ CREATE TABLE `shop_order` (
 
 LOCK TABLES `shop_order` WRITE;
 /*!40000 ALTER TABLE `shop_order` DISABLE KEYS */;
+INSERT INTO `shop_order` VALUES (1,1,7,8,1322839746,'new',NULL,NULL,1,1,'');
+INSERT INTO `shop_order` VALUES (2,1,9,10,1322863956,'new',NULL,NULL,1,1,'');
+INSERT INTO `shop_order` VALUES (3,1,11,12,1322864578,'new',NULL,NULL,1,1,'');
+INSERT INTO `shop_order` VALUES (4,1,13,14,1322873880,'new',NULL,NULL,1,1,'');
+INSERT INTO `shop_order` VALUES (5,1,15,16,1322874106,'new',NULL,NULL,1,1,'');
+INSERT INTO `shop_order` VALUES (6,1,17,18,1322893420,'new',NULL,NULL,1,1,'');
 /*!40000 ALTER TABLE `shop_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,7 +204,7 @@ CREATE TABLE `shop_order_position` (
   `amount` int(11) NOT NULL,
   `specifications` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,6 +213,18 @@ CREATE TABLE `shop_order_position` (
 
 LOCK TABLES `shop_order_position` WRITE;
 /*!40000 ALTER TABLE `shop_order_position` DISABLE KEYS */;
+INSERT INTO `shop_order_position` VALUES (1,1,3,2,'null');
+INSERT INTO `shop_order_position` VALUES (2,2,2,1,'null');
+INSERT INTO `shop_order_position` VALUES (3,2,3,1,'null');
+INSERT INTO `shop_order_position` VALUES (4,3,2,1,'null');
+INSERT INTO `shop_order_position` VALUES (5,3,4,1,'null');
+INSERT INTO `shop_order_position` VALUES (6,3,3,1,'null');
+INSERT INTO `shop_order_position` VALUES (7,4,2,1,'null');
+INSERT INTO `shop_order_position` VALUES (8,5,4,1,'null');
+INSERT INTO `shop_order_position` VALUES (9,6,5,1,'null');
+INSERT INTO `shop_order_position` VALUES (10,6,2,1,'null');
+INSERT INTO `shop_order_position` VALUES (11,6,3,1,'null');
+INSERT INTO `shop_order_position` VALUES (12,6,4,1,'null');
 /*!40000 ALTER TABLE `shop_order_position` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,11 +251,9 @@ CREATE TABLE `shop_payment_method` (
 
 LOCK TABLES `shop_payment_method` WRITE;
 /*!40000 ALTER TABLE `shop_payment_method` DISABLE KEYS */;
-INSERT INTO `shop_payment_method` VALUES (1,'cash','You pay cash',1,0);
-INSERT INTO `shop_payment_method` VALUES (2,'advance Payment','You pay in advance, we deliver',1,0);
-INSERT INTO `shop_payment_method` VALUES (3,'cash on delivery','You pay when we deliver',1,0);
-INSERT INTO `shop_payment_method` VALUES (4,'invoice','We deliver and send a invoice',1,0);
-INSERT INTO `shop_payment_method` VALUES (5,'paypal','You pay by paypal',1,0);
+INSERT INTO `shop_payment_method` VALUES (1,'現金払い','現金払い',1,0);
+INSERT INTO `shop_payment_method` VALUES (2,'銀行振込','銀行振込',1,0);
+INSERT INTO `shop_payment_method` VALUES (3,'代金引換','代金引換',1,0);
 /*!40000 ALTER TABLE `shop_payment_method` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -244,10 +280,6 @@ CREATE TABLE `shop_product_specification` (
 LOCK TABLES `shop_product_specification` WRITE;
 /*!40000 ALTER TABLE `shop_product_specification` DISABLE KEYS */;
 INSERT INTO `shop_product_specification` VALUES (1,'Weight','none',1);
-INSERT INTO `shop_product_specification` VALUES (2,'Color','select',0);
-INSERT INTO `shop_product_specification` VALUES (3,'Some random attribute','none',0);
-INSERT INTO `shop_product_specification` VALUES (4,'Material','none',1);
-INSERT INTO `shop_product_specification` VALUES (5,'Specific number','textfield',1);
 /*!40000 ALTER TABLE `shop_product_specification` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,7 +299,7 @@ CREATE TABLE `shop_product_variation` (
   `price_adjustion` float NOT NULL,
   `weight_adjustion` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -276,10 +308,10 @@ CREATE TABLE `shop_product_variation` (
 
 LOCK TABLES `shop_product_variation` WRITE;
 /*!40000 ALTER TABLE `shop_product_variation` DISABLE KEYS */;
-INSERT INTO `shop_product_variation` VALUES (1,1,1,2,'variation1',3,0);
-INSERT INTO `shop_product_variation` VALUES (2,1,1,3,'variation2',6,0);
-INSERT INTO `shop_product_variation` VALUES (3,1,2,4,'variation3',9,0);
-INSERT INTO `shop_product_variation` VALUES (4,1,5,1,'please enter a number here',0,0);
+INSERT INTO `shop_product_variation` VALUES (9,1,5,1,'please enter a number here',0,0);
+INSERT INTO `shop_product_variation` VALUES (10,1,1,2,'variation1',3,0);
+INSERT INTO `shop_product_variation` VALUES (11,1,1,3,'variation2',6,0);
+INSERT INTO `shop_product_variation` VALUES (12,1,2,4,'variation3',9,0);
 /*!40000 ALTER TABLE `shop_product_variation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -297,6 +329,7 @@ CREATE TABLE `shop_products` (
   `tax_id` int(11) NOT NULL,
   `title` varchar(45) NOT NULL,
   `description` text,
+  `descriptionDisplay` text,
   `keywords` varchar(255) DEFAULT NULL,
   `price` varchar(45) DEFAULT NULL,
   `language` varchar(45) DEFAULT NULL,
@@ -304,7 +337,7 @@ CREATE TABLE `shop_products` (
   PRIMARY KEY (`product_id`),
   KEY `fk_products_category` (`category_id`),
   CONSTRAINT `fk_products_category` FOREIGN KEY (`category_id`) REFERENCES `shop_category` (`category_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -313,10 +346,10 @@ CREATE TABLE `shop_products` (
 
 LOCK TABLES `shop_products` WRITE;
 /*!40000 ALTER TABLE `shop_products` DISABLE KEYS */;
-INSERT INTO `shop_products` VALUES (1,1,0,1,'Demonstration of Article with variations','Hello, World!',NULL,'19.99',NULL,NULL);
-INSERT INTO `shop_products` VALUES (2,1,0,2,'Another Demo Article with less Tax','!!',NULL,'29.99',NULL,NULL);
-INSERT INTO `shop_products` VALUES (3,2,0,1,'Demo3','',NULL,'',NULL,NULL);
-INSERT INTO `shop_products` VALUES (4,4,0,1,'Demo4','',NULL,'7, 55',NULL,NULL);
+INSERT INTO `shop_products` VALUES (2,1,1,1,'オレンジスイート','爽やかで甘くフルーティな香り。気分を明るく、リフレッシュするのに最適です。\r\n異名称：スイートオレンジ\r\n\r\n\r\n●精油名：オレンジ・スィート（果皮）\r\n●学名：Citrus sinensis (Ze) (10ml)\r\n●科名：ミカン科\r\n●蒸留部位：果皮\r\n●主な産地：イタリア、ブラジル、モロッコ\r\n●蒸散速度：トップノート（中）\r\n●相性の良い精油：柑橘系、クラリーセージ、フランキンセンス、ネロリ、ミルラ、ラベンダー類、スパイス系\r\n●禁忌または注意事項：用法用量を守って使用すれば禁忌なし。\r\n','<p>爽やかで甘くフルーティな香り。気分を明るく、リフレッシュするのに最適です。<br />異名称：スイートオレンジ</p><p>●精油名：オレンジ・スィート（果皮）<br />●学名：Citrus sinensis (Ze) (10ml)<br />●科名：ミカン科<br />●蒸留部位：果皮<br />●主な産地：イタリア、ブラジル、モロッコ<br />●蒸散速度：トップノート（中）<br />●相性の良い精油：柑橘系、クラリーセージ、フランキンセンス、ネロリ、ミルラ、ラベンダー類、スパイス系<br />●禁忌または注意事項：用法用量を守って使用すれば禁忌なし。</p><br />','','2415',NULL,'{\"Weight\":\"\"}');
+INSERT INTO `shop_products` VALUES (3,1,1,1,'ベルガモット','透明感のある甘い柑橘の香り。\r\nリラックスだけでなく、リフレッシュにもおすすめです。異名称：ベルガモットオレンジ、ベルガモットオレンジピール\r\n\r\n●精油名：ベルガモット（果皮）\r\n●学名：Citrus aurantium ssp. bergamia (Ze) (10ml)\r\n●科名：ミカン科\r\n●蒸留部位：果皮\r\n●主な産地：イタリア、コートジボワール\r\n●蒸散速度：トップノート（高）\r\n●相性の良い精油：柑橘系、ネロリ、レモングラス、エレミ、プチグレン、ラベンダー類、クラリーセージ、ゼラニウム類、バジル\r\n●禁忌または注意事項：フロクマリン類を含んでいるので光感作（光毒性）作用がある。塗布した肌を４～５時間は直射日光（紫外線）に当てないよう注意が必要。','<p>透明感のある甘い柑橘の香り。<br />リラックスだけでなく、リフレッシュにもおすすめです。異名称：ベルガモットオレンジ、ベルガモットオレンジピール</p><p>●精油名：ベルガモット（果皮）<br />●学名：Citrus aurantium ssp. bergamia (Ze) (10ml)<br />●科名：ミカン科<br />●蒸留部位：果皮<br />●主な産地：イタリア、コートジボワール<br />●蒸散速度：トップノート（高）<br />●相性の良い精油：柑橘系、ネロリ、レモングラス、エレミ、プチグレン、ラベンダー類、クラリーセージ、ゼラニウム類、バジル<br />●禁忌または注意事項：フロクマリン類を含んでいるので光感作（光毒性）作用がある。塗布した肌を４～５時間は直射日光（紫外線）に当てないよう注意が必要。</p><br />','','3360',NULL,'{\"Weight\":\"\",\"Color\":\"\",\"Some random attribute\":\"\",\"Material\":\"\",\"Specific number\":\"\"}');
+INSERT INTO `shop_products` VALUES (4,4,1,1,'アプリコットオイル','アンズの種子からとれる植物油。\r\nほのかに甘い香りで、皮膚への浸透性が期待できます。\r\n\r\n■ 商品名 	アプリコット油\r\n■ 内容量 	50ml\r\n■ 使用成分 	アプリコット油\r\n■ 説明 	種子を圧搾\r\nオレイン酸やリノール酸を多く含み、適度な粘性と甘い香りをもちます。\r\n■ 使い方 	適量を手にとり、お肌に塗布してください。\r\n■ 保存方法 	高温多湿の場所を避けて保存してください。\r\n■ メーカー名 	プラナロム社\r\n■ 輸入業者 	株式会社 健草医学舎\r\n■ 区分 	ベルギー製／化粧品\r\n','<p>アンズの種子からとれる植物油。<br />ほのかに甘い香りで、皮膚への浸透性が期待できます。</p><p>■ 商品名   アプリコット油<br />■ 内容量   50ml<br />■ 使用成分  アプリコット油<br />■ 説明    種子を圧搾<br />オレイン酸やリノール酸を多く含み、適度な粘性と甘い香りをもちます。<br />■ 使い方   適量を手にとり、お肌に塗布してください。<br />■ 保存方法  高温多湿の場所を避けて保存してください。<br />■ メーカー名     プラナロム社<br />■ 輸入業者  株式会社 健草医学舎<br />■ 区分    ベルギー製／化粧品</p><br />','','2415',NULL,'{\"Weight\":\"\"}');
+INSERT INTO `shop_products` VALUES (5,2,1,1,'カモマイルジャーマンウォーター','■ 全成分 	カモマイルジャーマン水\r\n■ 内容量 	200ml\r\n','<p>■ 全成分   カモマイルジャーマン水<br />■ 内容量   200ml</p><br />','','2310',NULL,'{\"Weight\":\"\"}');
 /*!40000 ALTER TABLE `shop_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -344,8 +377,8 @@ CREATE TABLE `shop_shipping_method` (
 
 LOCK TABLES `shop_shipping_method` WRITE;
 /*!40000 ALTER TABLE `shop_shipping_method` DISABLE KEYS */;
-INSERT INTO `shop_shipping_method` VALUES (1,'1-5','Delivery by postal Service','We deliver by Postal Service. 2.99 units of money are charged for that',1,2.99);
-INSERT INTO `shop_shipping_method` VALUES (1,'5-10','Delivery by postal Service','We deliver by Postal Service. 2.99 units of money are charged for that',1,2.99);
+INSERT INTO `shop_shipping_method` VALUES (1,'0-5','ゆうぱっく','ゆうぱっくによる配送です。500円かかります。',1,500);
+INSERT INTO `shop_shipping_method` VALUES (1,'5-10','ゆうぱっく','ゆうぱっくによる配送です。500円かかります。',1,500);
 /*!40000 ALTER TABLE `shop_shipping_method` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -370,8 +403,7 @@ CREATE TABLE `shop_tax` (
 
 LOCK TABLES `shop_tax` WRITE;
 /*!40000 ALTER TABLE `shop_tax` DISABLE KEYS */;
-INSERT INTO `shop_tax` VALUES (1,'19%',19);
-INSERT INTO `shop_tax` VALUES (2,'7%',7);
+INSERT INTO `shop_tax` VALUES (1,'消費税5%',5);
 /*!40000 ALTER TABLE `shop_tax` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -384,4 +416,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-11-30 14:45:08
+-- Dump completed on 2011-12-03 17:53:18
