@@ -17,6 +17,6 @@ echo CHtml::image($path,
 		); ?>
 <?php 
 
-if(Shop::module()->useWithYum && Yii::app()->user->isAdmin()) 
+if(Shop::module()->useWithYum && Yii::app()->user->isAdmin() || Yii::app()->user->id == 'admin') 
 	echo CHtml::link(Shop::t('Delete Image'),
 			array('delete', 'id' => $model->id)); ?>
