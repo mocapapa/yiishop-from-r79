@@ -28,6 +28,9 @@ class Products extends CActiveRecord
 	public function beforeValidate() {
 		if(Yii::app()->language == 'de')
 			$this->price = str_replace(',', '.', $this->price);
+
+		$parser=new CMarkdownParser;
+		$this->descriptionDisplay = str_replace('<br /><br />', '', str_replace("\n",'<br />', $parser->safeTransform($this->description)));
 		
 		return parent::beforeValidate();
 	}

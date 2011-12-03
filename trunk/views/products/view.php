@@ -45,7 +45,7 @@ $this->renderPartial('/image/view', array( 'model' => new Image()));
 
 
 <div class="product-description">
-	<p> <?php echo $model->description; ?> </p>
+	<p> <?php echo $model->descriptionDisplay; ?> </p>
 </div>
 
 
