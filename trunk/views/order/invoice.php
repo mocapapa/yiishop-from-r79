@@ -5,7 +5,7 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
 
 ?>
 
-<div id="slip">
+<div id="slip" style="broder: solid 1px; padding: 10px;">
 
 <?php $this->renderPartial(Shop::module()->headerView); ?>
 
@@ -26,7 +26,8 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
         </tr>
       </table>
       <br>
-      <table style="border-top:1px solid; border-bottom:1px solid;" width="100%" border="0">
+      <!-- address -->
+      <table style="border-top:1px solid; border-bottom:1px solid;border-color: #888;" width="100%" border="0">
         <tr bgcolor="#f1f1f1"> 
           <td width="50%"> 
             <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>
@@ -51,26 +52,29 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
       <p>&nbsp;</p></td>
   </tr>
 </table>
-<table style="border-bottom:1px solid;" width="100%" border="0" cellpadding="0" cellspacing="0">
+
+      <!-- product -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr> 
     <td><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong><?php echo Shop::t('Products'); ?></strong></font></td>
   </tr>
   <tr>
     <td>
-	<table width="100%" border="0" cellpadding="3" cellspacing="0" bgcolor="f1f1f1">
-        <tr> 
-          <td colspan="2" style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><div align="center"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Amount'); ?></font></strong></div></td>
-          <td style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Product'); ?></font></strong></td>
-		  <td style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Product number'); ?></font></strong></td>
-		  <td style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Price'); ?></font></strong></td>
+	<table width="100%" border="0" cellpadding="3" cellspacing="0" style="border-top: 1px solid; border-color: #888;">
+        <tr bgcolor="f1f1f1"> 
+	  <td style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;text-align: center"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Product number'); ?></font></strong></td>
+          <td style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;text-align: center;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Product'); ?></font></strong></td>
+          <td style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;text-align: center;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Price Single'); ?></font></strong></td>
+          <td width="30" style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;text-align: center;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Amount'); ?></font></strong></td>
+	  <td style="border-bottom: 1px solid; border-color: #888;text-align: center;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::t('Price'); ?></font></strong></td>
         </tr>
 <?php foreach($model->positions as $position) { ?>
         <tr> 
-          <td width="20" style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><div align="center"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo $position->amount; ?></font></div></td>
-          <td width="20" style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><div align="center"><font size="1" face="Verdana, Arial, Helvetica, sans-serif">x</font></div></td>
-          <td style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong><?php echo $position->product->title; ?></strong> <em><?php echo $position->listSpecifications(); ?></em></font></td>
-		  <td style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo $position->product_id; ?></font></td>
-		  <td style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::priceFormat($position->getPrice()); ?></font></td>
+	  <td style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo $position->product_id; ?></font></td>
+	  <td style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong><?php echo $position->product->title; ?></strong> <em><?php echo $position->listSpecifications(); ?></em></font></td>
+	  <td wiidth="60" style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;text-align: right;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::priceFormat($position->getPrice()/$position->amount); ?></font></td>
+          <td style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;text-align: center;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo $position->amount; ?></font></td>
+	  <td width="60" style="border-bottom: 1px solid; border-color: #888;text-align: right;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::priceFormat($position->getPrice()); ?></font></td>
         </tr>
 
 
@@ -78,11 +82,11 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
 
 <?php if($model->shippingMethod) { ?>
         <tr> 
-          <td width="20" style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><div align="center"><font size="1" face="Verdana, Arial, Helvetica, sans-serif">1</font></div></td>
-          <td width="20" style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><div align="center"><font size="1" face="Verdana, Arial, Helvetica, sans-serif">x</font></div></td>
-          <td style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong><?php echo $model->shippingMethod->title; ?></strong> </font></td>
-		  <td style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"></font></td>
-		  <td style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::priceFormat($model->shippingMethod->price); ?></font></td>
+	  <td style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif">---</font></td>
+          <td style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong><?php echo $model->shippingMethod->title; ?></strong> </font></td>
+	  <td style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;text-align: right;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::priceFormat($model->shippingMethod->price); ?></font></td>
+          <td style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;text-align: center;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif">1</font></td>
+	  <td style="border-bottom: 1px solid; border-color: #888;text-align: right;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::priceFormat($model->shippingMethod->price); ?></font></td>
         </tr>
 <?php } ?> 
 
@@ -94,12 +98,12 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
   <tr> 
     <td nowrap> <table width="100%" border="0" cellpadding="3" cellspacing="0">
         <tr> 
-          <td nowrap width="100%" style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><div align="right"><font size="1" face="Arial, Helvetica, sans-serif"><?php echo Shop::t('Total value'); ?>
+          <td nowrap width="100%" style="border-right: 1px solid; border-bottom: 1px solid; border-color: #ffffff;"><div align="right"><font size="1" face="Arial, Helvetica, sans-serif"><?php echo Shop::t('Total value'); ?>
               <?php echo Shop::priceFormat($model->getTotalPrice()); ?></font></div></td>
         </tr>
         <tr> 
-          <td nowrap width="100%" style="border-right: 2px solid; border-bottom: 2px solid; border-color: #ffffff;"><div align="right"><font size="1" face="Arial, Helvetica, sans-serif"><?php echo Shop::t('Tax amount'); ?>
-              <?php echo Shop::priceFormat($model->getTaxAmount()); ?></font></div></td>
+          <td nowrap width="100%" style="border-right: 1px solid; border-bottom: 1px solid; border-color: #ffffff;"><div align="right"><font size="1" face="Arial, Helvetica, sans-serif">(<?php echo Shop::t('Tax amount'); ?>
+	  <?php echo Shop::priceFormat($model->getTaxAmount()); ?>)</font></div></td>
         </tr>
 
         </table></td>
