@@ -1,1 +1,1 @@
-<img src="images/morning-dew-title-dark.png">
+<img src="images/morning-dew-title-bw.png">
