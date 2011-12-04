@@ -29,19 +29,20 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
       <!-- address -->
       <table style="border-top:1px solid; border-bottom:1px solid;border-color: #888;" width="100%" border="0">
         <tr bgcolor="#f1f1f1"> 
-          <td width="50%"> 
+          <td width="50%" style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;"> 
             <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>
-							<?php echo Shop::t('Delivery address'); ?>
-            </strong><br>
+		<?php echo Shop::t('Delivery address'); ?>
+            </strong>
           </font></p></td>
-          <td> 
-            <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>              </strong><strong>
-							<?php echo Shop::t('Billing address'); ?>
-            </strong><br>
+          <td style="border-bottom: 1px solid; border-color: #888;"> 
+            <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>
+  		</strong><strong>
+		<?php echo Shop::t('Billing address'); ?>
+            </strong>
           </font> </p></td>
         </tr>
         <tr>
-          <td><font size="1" face="Verdana, Arial, Helvetica, sans-serif"> 
+          <td style="border-right: 1px solid; border-color: #888;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"> 
 							<?php $model->deliveryAddress->renderAddress(); ?>
           </font></td>
           <td><font size="1" face="Verdana, Arial, Helvetica, sans-serif">
