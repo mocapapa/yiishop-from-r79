@@ -17,7 +17,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	'filter'=>$model,
 	'columns'=>array(
 		'title',
-		'price',
+		array(
+			'name'=>'price',
+			'htmlOptions'=>array('width'=>'13%', 'style'=>'text-align:right;'),
+		),
 		array(
 			'class'=>'CButtonColumn', 
 			'template' => '{view}{update}{delete}{images}',
@@ -34,6 +37,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 					array("product_id" => $data->product_id))',
 				),
 			),
+			'htmlOptions'=>array('width'=>'13%'),
 		),
 	)
 )
