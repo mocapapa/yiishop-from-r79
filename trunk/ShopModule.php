@@ -21,6 +21,7 @@ class ShopModule extends CWebModule
 	public $orderTable = 'shop_order';
 	public $orderPositionTable = 'shop_order_position';
 	public $customerTable = 'shop_customer';
+	public $pointTable = 'shop_point';
 	public $addressTable = 'shop_address';
 	public $imageTable = 'shop_image';
 	public $shippingMethodTable = 'shop_shipping_method';

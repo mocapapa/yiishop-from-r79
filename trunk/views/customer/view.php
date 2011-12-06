@@ -7,6 +7,7 @@ if(!isset($hideEmail)) {
 	'attributes'=>array(
 		'email',
 		'phone',
+		'accPoint',
 	),
 )); 
 }

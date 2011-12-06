@@ -26,19 +26,20 @@ class Order extends CActiveRecord
 	public function rules()
 	{
 		return array(
-				array('customer_id, ordering_date, delivery_address_id, billing_address_id, payment_method', 'required'),
-				array('status', 'in', 'range' => array('new', 'in_progress', 'done', 'cancelled')),
-				array('customer_id', 'numerical', 'integerOnly'=>true),
-				array('order_id, customer_id, ordering_date, status, comment', 'safe'),
-				);
+			array('customer_id, ordering_date, delivery_address_id, billing_address_id, payment_method', 'required'),
+			array('status', 'in', 'range' => array('new', 'in_progress', 'done', 'cancelled')),
+			array('customer_id', 'numerical', 'integerOnly'=>true),
+			array('order_id, customer_id, ordering_date, status, comment, point_id', 'safe'),
+		);
 	}
 
 	public static function statusOptions() {
 		return array(
-				'new' => Shop::t('New'),
-				'in_progress' => Shop::t('In progress'),
-				'done' => Shop::t('Done'),
-				'cancelled' => Shop::t('Cancelled'));
+			'new' => Shop::t('New'),
+			'in_progress' => Shop::t('In progress'),
+			'done' => Shop::t('Done'),
+			'cancelled' => Shop::t('Cancelled')
+		);
 
 	}
 
@@ -49,14 +50,15 @@ class Order extends CActiveRecord
 	public function relations()
 	{
 		$relations = array(
-				'customer' => array(self::BELONGS_TO, 'Customer', 'customer_id'),
-				'positions' => array(self::HAS_MANY, 'OrderPosition', 'order_id'),
-				'address' => array(self::BELONGS_TO, 'Address', 'address_id'),
-				'billingAddress' => array(self::BELONGS_TO, 'BillingAddress', 'billing_address_id'),
-				'deliveryAddress' => array(self::BELONGS_TO, 'DeliveryAddress', 'delivery_address_id'),
-				'paymentMethod' => array(self::BELONGS_TO, 'PaymentMethod', 'payment_method'),
-				'shippingMethod' => array(self::BELONGS_TO, 'ShippingMethod', 'shipping_method'),
-				);
+			'customer' => array(self::BELONGS_TO, 'Customer', 'customer_id'),
+			'positions' => array(self::HAS_MANY, 'OrderPosition', 'order_id'),
+			'address' => array(self::BELONGS_TO, 'Address', 'address_id'),
+			'billingAddress' => array(self::BELONGS_TO, 'BillingAddress', 'billing_address_id'),
+			'deliveryAddress' => array(self::BELONGS_TO, 'DeliveryAddress', 'delivery_address_id'),
+			'paymentMethod' => array(self::BELONGS_TO, 'PaymentMethod', 'payment_method'),
+			'shippingMethod' => array(self::BELONGS_TO, 'ShippingMethod', 'shipping_method'),
+			'point' => array(self::BELONGS_TO, 'Point', 'point_id'),
+		);
 
 		if(Shop::module()->useWithYum)
 			$relations['user'] = array(self::HAS_ONE, 'YumUser', 'user_id', 'through' => 'customer');

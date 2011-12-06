@@ -55,13 +55,9 @@ class Customer extends CActiveRecord
 	public function search()
 	{
 		$criteria=new CDbCriteria;
-
 		$criteria->compare('customer_id',$this->customer_id);
-
 		$criteria->compare('user_id',$this->user_id);
-
 		$criteria->compare('email',$this->email,true);
-
 		return new CActiveDataProvider('Customer', array(
 			'criteria'=>$criteria,
 		));

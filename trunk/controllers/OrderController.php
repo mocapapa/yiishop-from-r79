@@ -249,6 +249,11 @@ class OrderController extends Controller
 			$order->shipping_method = Yii::app()->user->getState('shipping_method');
 			$order->comment = Yii::app()->user->getState('order_comment');
 			$order->status = 'new';
+			$deduction = 0;
+
+			if ($point = Point::model()->find()->id) {
+				$order->point_id = $point;
+			}
 
 			if($order->save()) {
 				foreach($cart as $position => $product) {
@@ -258,13 +263,41 @@ class OrderController extends Controller
 					$position->amount = $product['amount'];
 					$position->specifications = @json_encode($product['Variations']);
 					$position->save();
+
+					$deduction += $position->getPrice();
+					/*
 					Yii::app()->user->setState('cart', array());
 					Yii::app()->user->setState('shipping_method', null);
 					Yii::app()->user->setState('payment_method', null);
 					Yii::app()->user->setState('order_comment', null);
+					*/
 				}
 				Shop::mailNotification($order);
-				Shop::flushCart();
+				// Shop::flushCart();
+
+				$deduction *= ($order->point->value/100.0);
+				$account = $order->customer->accPoint;
+				if ($account + $deduction > $order->point->threshold)
+				{
+				  $account -= ($order->point->threshold - $deduction);
+				  $deduction = $order->point->threshold;
+				} else {
+				  $account += $deduction;
+				  $deduction = 0;
+				}
+
+				$order->accPoint = $account;
+
+				// make deduction position
+				$position = new OrderPosition;
+				$position->order_id = $order->order_id;
+				$position->product_id = $product['product_id'];
+				$position->amount = 1;
+				$position->specifications = @json_encode($product['Variations']);
+				$position->save();
+
+
+				$order->save();
 
 				if(Shop::module()->payPalMethod !== false 
 						&& $order->payment_method == Shop::module()->payPalMethod) 
