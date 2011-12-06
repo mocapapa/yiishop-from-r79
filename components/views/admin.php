@@ -6,6 +6,7 @@
 <li> <?php echo CHtml::link(Shop::t('Shipping methods'), array('/shop/shippingMethod/admin')); ?> </li>
 <li> <?php echo CHtml::link(Shop::t('Payment methods'), array('/shop/paymentMethod/admin')); ?> </li>
 <li> <?php echo CHtml::link(Shop::t('Tax'), array('/shop/tax/admin')); ?> </li>
+<li> <?php echo CHtml::link(Shop::t('Points'), array('/shop/point/admin')); ?> </li>
 <li> <?php echo CHtml::link(Shop::t('Orders'), array('/shop/order/admin')); ?> </li>
 
 <?php

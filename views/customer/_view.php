@@ -4,8 +4,8 @@
 	<?php echo CHtml::link(CHtml::encode($data->customer_id), array('view', 'id'=>$data->customer_id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('userid')); ?>:</b>
-	<?php echo CHtml::encode($data->userid); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('user_id')); ?>:</b>
+	<?php echo CHtml::encode($data->user_id); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('address')); ?>:</b>
@@ -28,5 +28,8 @@
 	<?php echo CHtml::encode($data->email); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('points')); ?>:</b>
+	<?php echo CHtml::encode($data->points); ?>
+	<br />
 
 </div>

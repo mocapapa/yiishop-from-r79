@@ -34,12 +34,13 @@ $('.search-form form').submit(function(){
 	'filter'=>$model,
 	'columns'=>array(
 		'customer_id',
-		'userid',
+		'user_id',
 		'address',
 		'zipcode',
 		'city',
 		'country',
 		'email',
+		'accPoint',
 		array(
 			'class'=>'CButtonColumn',
 		),
