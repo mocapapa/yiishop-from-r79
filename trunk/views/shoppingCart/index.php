@@ -1,7 +1,4 @@
-<h3> 
 <?php echo Shop::t('Your Shopping Cart'); ?> 
-</h3>
-<hr />
 
 <?php 
 
