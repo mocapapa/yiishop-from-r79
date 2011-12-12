@@ -52,6 +52,7 @@ class Order extends CActiveRecord
 		$relations = array(
 			'customer' => array(self::BELONGS_TO, 'Customer', 'customer_id'),
 			'positions' => array(self::HAS_MANY, 'OrderPosition', 'order_id'),
+			'discounts' => array(self::HAS_MANY, 'DiscountPosition', 'order_id'),
 			'address' => array(self::BELONGS_TO, 'Address', 'address_id'),
 			'billingAddress' => array(self::BELONGS_TO, 'BillingAddress', 'billing_address_id'),
 			'deliveryAddress' => array(self::BELONGS_TO, 'DeliveryAddress', 'delivery_address_id'),

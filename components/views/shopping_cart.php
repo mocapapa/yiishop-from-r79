@@ -2,8 +2,8 @@
 <div id="shopping-cart-content">
 <?php
 if($products) {
-	echo '<h3>'.CHtml::link(Shop::t('Shopping cart'), array(
-				'//shop/shoppingCart/view')) . '</h3>';
+	echo CHtml::link(Shop::t('Shopping cart'), array(
+				'//shop/shoppingCart/view'));
 
 	echo '<table cellpadding="0" cellspacing="0">';	
 	foreach($products as $num => $position) { 
@@ -18,6 +18,7 @@ if($products) {
 				);
 	}
 
+
 	if($shippingMethod = Shop::getShippingMethod()) {
 		printf('<tr>
 				<td class="cart-left">1</td>
@@ -26,7 +27,18 @@ if($products) {
 				Shop::t('Shipping costs'),
 				Shop::priceFormat($shippingMethod->price)
 				);
-	} 
+	}
+
+	if($shippingMethod = Shop::getShippingMethod()) {
+		printf('<tr>
+				<td class="cart-left">1</td>
+				<td class="cart-middle">%s</td>
+				<td class="cart-right">%s</td></tr>',
+				Shop::t('Discount'),
+				Shop::priceFormat(-$shippingMethod->price)
+				);
+	}
+	
 
 	printf('<tr>
 			<td colspan="3" class="cart-right cart-sum price_total"><strong>%s</strong></td>

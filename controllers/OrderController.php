@@ -249,7 +249,7 @@ class OrderController extends Controller
 			$order->shipping_method = Yii::app()->user->getState('shipping_method');
 			$order->comment = Yii::app()->user->getState('order_comment');
 			$order->status = 'new';
-			$deduction = 0;
+			$discount = 0;
 
 			if ($point = Point::model()->find()->id) {
 				$order->point_id = $point;
@@ -264,7 +264,7 @@ class OrderController extends Controller
 					$position->specifications = @json_encode($product['Variations']);
 					$position->save();
 
-					$deduction += $position->getPrice();
+					$discount += $position->getPrice();
 					/*
 					Yii::app()->user->setState('cart', array());
 					Yii::app()->user->setState('shipping_method', null);
@@ -275,20 +275,21 @@ class OrderController extends Controller
 				Shop::mailNotification($order);
 				// Shop::flushCart();
 
-				$deduction *= ($order->point->value/100.0);
+				$discount *= ($order->point->value/100.0);
 				$account = $order->customer->accPoint;
-				if ($account + $deduction > $order->point->threshold)
+				if ($account + $discount > $order->point->threshold)
 				{
-				  $account -= ($order->point->threshold - $deduction);
-				  $deduction = $order->point->threshold;
+				  $account -= ($order->point->threshold - $discount);
+				  $discount = $order->point->threshold;
 				} else {
-				  $account += $deduction;
-				  $deduction = 0;
+				  $account += $discount;
+				  $discount = 0;
 				}
 
-				$order->accPoint = $account;
+				$order->customer->accPoint = $account;
+				$order->customer->save();
 
-				// make deduction position
+				// make order position
 				$position = new OrderPosition;
 				$position->order_id = $order->order_id;
 				$position->product_id = $product['product_id'];
@@ -296,6 +297,11 @@ class OrderController extends Controller
 				$position->specifications = @json_encode($product['Variations']);
 				$position->save();
 
+				// make discount position
+				$discountPosition = new DiscountPosition;
+				$discountPosition->order_id = $order->order_id;
+				$discountPosition->amount = $discount;
+				$discountPosition->save();
 
 				$order->save();
 

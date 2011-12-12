@@ -54,7 +54,7 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
   </tr>
 </table>
 
-      <!-- product -->
+<!-- product -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr> 
     <td><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong><?php echo Shop::t('Products'); ?></strong></font></td>
@@ -79,8 +79,9 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
         </tr>
 
 
-        <?php } ?>
+<?php } ?>
 
+<!-- shipping cost -->
 <?php if($model->shippingMethod) { ?>
         <tr> 
 	  <td style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif">---</font></td>
@@ -90,6 +91,19 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
 	  <td style="border-bottom: 1px solid; border-color: #888;text-align: right;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo Shop::priceFormat($model->shippingMethod->price); ?></font></td>
         </tr>
 <?php } ?> 
+
+<!-- discount position -->
+<?php foreach($model->discounts as $discount) { ?>
+        <tr> 
+	  <td style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif">---</font></td>
+	  <td style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong><?php echo 'ポイント利用値引き'; ?></strong> <em><?php echo ''; ?></em></font></td>
+	  <td wiidth="60" style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;text-align: right;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo '▲'.Shop::priceFormat($discount->amount); ?></font></td>
+          <td style="border-right: 1px solid; border-bottom: 1px solid; border-color: #888;text-align: center;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif">1</font></td>
+	  <td width="60" style="border-bottom: 1px solid; border-color: #888;text-align: right;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif"><?php echo '▲'.Shop::priceFormat($discount->getPrice()); ?></font></td>
+        </tr>
+<?php } ?> 
+
+
 
  </table>
 	</td>
@@ -113,7 +127,29 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
 
 <br />
 <br />
+<!-- point -->
+	<table width="100%" border="0" cellpadding="3" cellspacing="0" style="border-top: 1px solid; border-color: #888;">
+          <tr bgcolor="f1f1f1">
+　　　      <td style="text-align:center;">前回までのポイント</td>
+　　　      <td style="border-left: 1px solid; border-color:#888;text-align:center;">今回利用ポイント</td>
+　　　      <td style="border-left: 1px solid; border-color:#888;text-align:center;">今回獲得ポイント</td>
+　　　      <td style="border-left: 1px solid; border-color:#888;text-align:center;">次回のポイント</td>
+          </tr>
+          <tr>
+            <td style="border-top: 1px solid;border-bottom: 1px solid;text-align:right;">13,000</td>
+            <td style="border-top: 1px solid;border-bottom: 1px solid;border-left: 1px solid; border-color:#888;text-align:right;">2,000</td>
+            <td style="border-top: 1px solid;border-bottom: 1px solid;border-left: 1px solid; border-color:#888;text-align:right;">500</td>
+            <td style="border-top: 1px solid;border-bottom: 1px solid;border-left: 1px solid; border-color:#888;text-align:right;">11,500</td>
+          </tr>
+        </table>
+
+
 <br />
+<br />
+<br />
+
+
+
 
 <div id="print-footer">
 <?php $this->renderPartial(Shop::module()->footerView); ?>
