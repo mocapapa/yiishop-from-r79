@@ -109,6 +109,8 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
 	</td>
   </tr>
 </table>
+
+<!-- tax calculation -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr> 
     <td nowrap> <table width="100%" border="0" cellpadding="3" cellspacing="0">
@@ -127,6 +129,9 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
 
 <br />
 <br />
+
+<?php if(Yii::app()->params['pointEnable']) { ?>
+
 <!-- point -->
 	<table width="100%" border="0" cellpadding="3" cellspacing="0" style="border-top: 1px solid; border-color: #888;">
           <tr bgcolor="f1f1f1">
@@ -147,8 +152,7 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
 <br />
 <br />
 <br />
-
-
+<?php } ?>
 
 
 <div id="print-footer">
