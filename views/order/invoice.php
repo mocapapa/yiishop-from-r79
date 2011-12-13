@@ -130,16 +130,16 @@ Yii::app()->clientScript->registerScript('print',  " $('#slip').printElement(); 
 <!-- point -->
 	<table width="100%" border="0" cellpadding="3" cellspacing="0" style="border-top: 1px solid; border-color: #888;">
           <tr bgcolor="f1f1f1">
-　　　      <td style="text-align:center;">前回までのポイント</td>
-　　　      <td style="border-left: 1px solid; border-color:#888;text-align:center;">今回利用ポイント</td>
-　　　      <td style="border-left: 1px solid; border-color:#888;text-align:center;">今回獲得ポイント</td>
-　　　      <td style="border-left: 1px solid; border-color:#888;text-align:center;">次回のポイント</td>
+　　　      <td style="text-align:center;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif">前回までのポイント</font></strong></td>
+　　　      <td style="border-left: 1px solid; border-color:#888;text-align:center;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif">今回利用ポイント</font></strong></td>
+　　　      <td style="border-left: 1px solid; border-color:#888;text-align:center;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif">今回獲得ポイント</font></strong></td>
+　　　      <td style="border-left: 1px solid; border-color:#888;text-align:center;"><strong><font size="1" face="Verdana, Arial, Helvetica, sans-serif">次回のポイント</font></strong></td>
           </tr>
           <tr>
-            <td style="border-top: 1px solid;border-bottom: 1px solid;text-align:right;">13,000</td>
-            <td style="border-top: 1px solid;border-bottom: 1px solid;border-left: 1px solid; border-color:#888;text-align:right;">2,000</td>
-            <td style="border-top: 1px solid;border-bottom: 1px solid;border-left: 1px solid; border-color:#888;text-align:right;">500</td>
-            <td style="border-top: 1px solid;border-bottom: 1px solid;border-left: 1px solid; border-color:#888;text-align:right;">11,500</td>
+            <td style="border-top: 1px solid;border-bottom: 1px solid;text-align:right;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif">13,000</font></td>
+            <td style="border-top: 1px solid;border-bottom: 1px solid;border-left: 1px solid; border-color:#888;text-align:right;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif">2,000</font></td>
+            <td style="border-top: 1px solid;border-bottom: 1px solid;border-left: 1px solid; border-color:#888;text-align:right;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif">500</font></td>
+            <td style="border-top: 1px solid;border-bottom: 1px solid;border-left: 1px solid; border-color:#888;text-align:right;"><font size="1" face="Verdana, Arial, Helvetica, sans-serif">11,500</font></td>
           </tr>
         </table>
 
